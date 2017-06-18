@@ -7,12 +7,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ProgressPage } from '../pages/progress/progress';
+import { CeilPipe } from './ceil.pipe';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ProgressPage
+    ProgressPage,
+    CeilPipe
   ],
   imports: [
     BrowserModule,

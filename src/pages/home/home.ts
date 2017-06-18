@@ -15,9 +15,9 @@ export class HomePage {
   startCountDown() {
     console.log(this.interval);
     const [hrs, mins] = this.interval.split(':');
-    const intervalInMins: number = +hrs*60 + (+mins);
-    console.log(`Counting ${intervalInMins} minutes`);
-    this.navCtrl.push(ProgressPage, {interval: intervalInMins});
+    const intervalInSec: number = 60*(+hrs*60 + (+mins));
+    console.log(`Counting ${intervalInSec} seconds`);
+    this.navCtrl.push(ProgressPage, {interval: intervalInSec});
   }
 
 }

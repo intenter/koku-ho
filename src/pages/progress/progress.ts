@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {Observable} from 'rxjs/Rx';
 import {Subscription} from "rxjs";
+//import { NativeAudio } from '@ionic-native/native-audio';
 
 
 @Component({
@@ -16,25 +17,27 @@ export class ProgressPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.counting = true;
     this.interval = navParams.get('interval');
-    const minute = 1000;
-    let timer = Observable.timer(minute, minute);
+    const oneSecond = 1000;
+    let timer = Observable.timer(oneSecond, oneSecond);
     this.subscription = timer.subscribe( t => {
+      if (!this.counting) {
+        return;
+      }
       this.interval--;
       if (this.interval === 0) {
         this.subscription.unsubscribe();
-        console.log('Done!');
+        this.navCtrl.pop();
       }
     });
   }
 
   pauseCountDown() {
-    console.log(`Current interval: ${this.interval}`);
+    this.counting = !this.counting;
   }
 
   stopCountDown() {
     this.subscription.unsubscribe();
     this.navCtrl.pop();
   }
-
 
 }
