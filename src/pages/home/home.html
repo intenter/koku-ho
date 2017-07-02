@@ -11,6 +11,25 @@
     <ion-label>Interval</ion-label>
     <ion-datetime displayFormat="HH:mm" [(ngModel)]="interval"></ion-datetime>
   </ion-item>
+ <ion-item-divider>
+    End With
+  </ion-item-divider>
+  <ion-grid>
+    <ion-row align-items-left>
+      <ion-col col-4>
+        <ion-select [(ngModel)]="endWithCount">
+          <ion-option>1</ion-option>
+          <ion-option>2</ion-option>
+          <ion-option>3</ion-option>
+        </ion-select>
+      </ion-col>
+      <ion-col col-8>
+        <ion-select [(ngModel)]="endWithSoundType" item-width="100%">
+          <ion-option *ngFor="let sound of sounds" [value]="sound">{{sound.name}}s</ion-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   <button ion-button (click)="startCountDown()">Start</button>
   
 </ion-content>
