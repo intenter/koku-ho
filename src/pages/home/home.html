@@ -29,6 +29,42 @@
         </ion-select>
       </ion-col>
     </ion-row>
+    <ion-row>
+      <ion-col col-9>
+        <ion-label>Additional notifications</ion-label>
+      </ion-col>
+      <ion-col col-3><button ion-button (click)="addSignal()">Add</button></ion-col>
+    </ion-row>
+    <ion-row *ngFor="let signal of additionalSignals">
+      <ion-col col-3>
+        <ion-item>
+          <ion-label>
+            In
+          </ion-label>
+          <ion-datetime displayFormat="HH:mm"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col col-3>
+        <ion-item>
+          <ion-label>Make</ion-label>
+        <ion-select [(ngModel)]="signal.times">
+          <ion-option>1</ion-option>
+          <ion-option>2</ion-option>
+          <ion-option>3</ion-option>
+        </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col col-5>
+        <ion-item>
+        <ion-select [(ngModel)]="signal.soundType" class="fillWidth">
+          <ion-option *ngFor="let sound of sounds" [value]="sound">{{sound.name}}s</ion-option>
+        </ion-select>        
+        </ion-item>
+      </ion-col>
+      <ion-col col-1>
+        <button ion-button (click)="deleteSignal(signal)">Delete</button>
+      </ion-col>
+    </ion-row>
   </ion-grid>
   <button ion-button (click)="startCountDown()">Start</button>
   
