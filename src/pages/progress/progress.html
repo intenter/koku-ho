@@ -8,6 +8,6 @@
 
 <ion-content padding>
     <p>{{(interval/60) | ceil}}</p>
-  <button ion-button (click)="pauseCountDown()">Pause</button>
+  <button ion-button (click)="pauseCountDown()">{{pauseButtonCaption}}</button>
   <button ion-button (click)="stopCountDown()">Stop</button>
 </ion-content>

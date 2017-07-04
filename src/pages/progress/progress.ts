@@ -13,6 +13,7 @@ import { SoundType } from '../home/home';
 export class ProgressPage {
   interval: number;
   counting: boolean;
+  pauseButtonCaption: string = 'Pause';
   subscription: Subscription;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private nativeAudio: NativeAudio) {
@@ -80,6 +81,8 @@ export class ProgressPage {
 
   pauseCountDown() {
     this.counting = !this.counting;
+    this.pauseButtonCaption = this.counting ? 'Pause' : 'Resume';
+    console.log(this.pauseButtonCaption);
   }
 
   stopCountDown() {
