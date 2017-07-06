@@ -10,13 +10,15 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ProgressPage } from '../pages/progress/progress';
 import { CeilPipe } from './ceil.pipe';
+import { IntervalSelectorComponent } from './interval-selector.component'
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ProgressPage,
-    CeilPipe
+    CeilPipe,
+    IntervalSelectorComponent
   ],
   imports: [
     BrowserModule,
