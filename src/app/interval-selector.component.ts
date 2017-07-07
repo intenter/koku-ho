@@ -12,6 +12,7 @@ export class IntervalSelectorComponent {
     
     @Input() 
     set interval(interval: number) {
+        console.log(`Setting interval ${interval}`);
         this._interval = interval;
         let mins = ~~(interval/60);
         let hrs = ~~(mins/60);
@@ -33,9 +34,4 @@ export class IntervalSelectorComponent {
         this.intervalChange.emit(this._interval);
     }
 
-    /**
-     *     
-    
-
-     */
 }
